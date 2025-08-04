@@ -12,7 +12,7 @@ Above is a component diagram illustrating the components and connection flow. It
 
 | Component                     | Description                                                             |
 | ----------------------------- | ----------------------------------------------------------------------- |
-| Client PC                     | Your device in Hong Kong running the OpenVPN client.                |
+| Client PC                     | Device in Hong Kong running the OpenVPN client.                |
 | AWS Client VPN Endpoint       | Managed VPN server handling connections.                         |
 | ACM (AWS Certificate Manager) | Provides certificates for secure authentication.                    |
 | AWS VPC                       | Virtual network in a non-restricted region with subnets and routing. |
@@ -40,13 +40,13 @@ Navigate to VPC > Client VPN Endpoints > Create.
 
 Configure with a unique Client CIDR (e.g., 172.16.0.0/22), mutual authentication using ACM certificates, and disable split-tunneling for full traffic routing.
 
-Associate with your VPC subnets and add authorization rules (e.g., 0.0.0.0/0 for all traffic).
+Associate with the VPC subnets and add authorization rules (e.g., 0.0.0.0/0 for all traffic).
 
 ### Step 4: Configure Routing and Security
 Update route tables to direct 0.0.0.0/0 to the Internet Gateway. Set security groups to allow UDP ports 1194 or 443 for VPN traffic.
 
 ### Step 5: Connect from Client PC
-Download the .ovpn configuration file from the VPN endpoint. Install OpenVPN client on your PC, import the file, and connect using your client certificate.
+Download the .ovpn configuration file from the VPN endpoint. Install OpenVPN client on the PC, import the file, and connect using the client certificate.
 
 Verify the connection and test access to Claude AI.
 
